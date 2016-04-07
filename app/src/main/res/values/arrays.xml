@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="response">
+        <item>勇猛堅強</item>
+        <item>仁慈包容</item>
+        <item>積極果斷</item>
+        <item>能屈能伸</item>
+        <item>不畏困難</item>
+        <item>善於思考</item>
+        <item>想像無窮</item>
+    </string-array>
+</resources>
