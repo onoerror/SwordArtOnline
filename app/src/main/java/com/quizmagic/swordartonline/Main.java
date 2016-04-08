@@ -2,6 +2,7 @@ package com.quizmagic.swordartonline;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,8 +46,8 @@ implements DialogInterface.OnClickListener{
         AlertDialogYesNoListener listener = new AlertDialogYesNoListener();
         new AlertDialog.Builder(this)
                 .setMessage("你的性別為何")
-                .setPositiveButton("男",listener)
-                .setNegativeButton("女",listener)
+                .setPositiveButton("男", listener)
+                .setNegativeButton("女", listener)
                 .show();
     }
 
@@ -85,6 +86,76 @@ implements DialogInterface.OnClickListener{
                     }
                 })
                 .show();
+    }
+
+    public void clickAlertDialogMultiChoice(View view) {
+        final String[] rstorince = getResources().getStringArray(R.array.rstorince);
+        final boolean[] selected = new boolean[rstorince.length];
+        new AlertDialog.Builder(this)
+                .setTitle("命運")
+                .setMultiChoiceItems(rstorince,selected,new
+                DialogInterface.OnMultiChoiceClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface dialog,int which,boolean isChecked){
+                        selected[which] = isChecked;
+                    }
+                })
+                .setPositiveButton("確定",new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog,int which){
+                        StringBuilder result = new StringBuilder();
+
+                        for(int i = 0;i<selected.length;i++){
+                            if(selected[i]){
+                                result.append(rstorince[i]).append("\n");
+                            }
+                        }
+                        m_tv_message.setText(result);
+                    }
+                })
+                .setNegativeButton("取消",new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog,int which){
+                        m_tv_message.setText("請繼續閱讀");
+                    }
+                })
+                .show();
+    }
+
+
+    private int mChoice;
+
+    public void clickAlertDialogSingleChoice(View view) {
+        final String[] name = getResources().getStringArray(R.array.name);
+        new AlertDialog.Builder(this)
+                .setTitle("選一個老婆")
+                .setSingleChoiceItems(name, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mChoice = which;
+                    }
+                })
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        m_tv_message.setText(name[mChoice]);
+                    }
+                })
+                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        m_tv_message.setText("請繼續閱讀");
+                    }
+                })
+                .show();
+    }
+
+    public void clickMyDialogFragment(View view) {
+
+        DialogFragment dialog = new AccountNumber();
+
+        dialog.show(getSupportFragmentManager(),"AccountNumber");
     }
 
     private class AlertDialogYesNoListener implements DialogInterface.OnClickListener{

@@ -10,7 +10,7 @@
     android:orientation="vertical"
     tools:context="com.quizmagic.swordartonline.Main"
     android:gravity="center_horizontal"
-    android:background="@drawable/mo">
+    android:background="@drawable/noter">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +18,8 @@
         android:text="歡迎來到刀劍的世界"
         android:id="@+id/tv_message"
         android:textSize="36dp"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textColor="#d3d3d3" />
 
     <Button
         android:onClick="clickAlertDialog"
@@ -40,7 +41,7 @@
         android:text="性別"
         android:background="#00ffffff"
         android:textSize="24dp"
-        android:textColor="#ffed26"
+        android:textColor="#ffffff"
         android:id="@+id/button3"
         android:layout_alignBottom="@+id/button2"
         android:layout_toLeftOf="@+id/button2"
@@ -53,7 +54,7 @@
         android:text="職業選擇"
         android:background="#00ffffff"
         android:textSize="36dp"
-        android:textColor="#ffffff"
+        android:textColor="#43ffffff"
         android:layout_above="@+id/button2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -68,9 +69,48 @@
         android:text="性格分析"
         android:background="#00ffffff"
         android:textSize="36dp"
-        android:textColor="#ffffff"
+        android:textColor="#adffffff"
         android:layout_alignTop="@+id/button3"
         android:layout_toRightOf="@+id/button2"
         android:layout_alignRight="@+id/button5"
-        android:layout_alignEnd="@+id/button5" />
+        android:layout_alignEnd="@+id/button5"
+        android:id="@+id/button4" />
+
+    <Button
+        android:onClick="clickAlertDialogMultiChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="命運"
+        android:background="#00ffffff"
+        android:textSize="100dp"
+        android:textColor="#6effffff"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_toLeftOf="@+id/button4"
+        android:layout_toStartOf="@+id/button4" />
+
+    <Button
+        android:onClick="clickAlertDialogSingleChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選一個老婆"
+        android:background="#00ffffff"
+        android:textSize="50dp"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/button5"
+        android:layout_alignRight="@+id/button5"
+        android:layout_alignEnd="@+id/button5"
+        android:id="@+id/button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickMyDialogFragment"
+        android:text="使用者帳號密碼"
+        android:textAllCaps="false"
+        android:background="#00ffffff"
+        android:layout_above="@+id/button"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignStart="@+id/button3"
+        android:textSize="24dp"
+        android:textColor="#a7ffffff" />
 </RelativeLayout>

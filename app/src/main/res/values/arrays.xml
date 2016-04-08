@@ -9,4 +9,23 @@
         <item>善於思考</item>
         <item>想像無窮</item>
     </string-array>
+
+    <string-array name="rstorince">
+        <item>終結魔王，抱得美人</item>
+        <item>孤獨不敗，笑傲群雄</item>
+        <item>世間真理皆盡求</item>
+        <item>極品后宮生活</item>
+    </string-array>
+
+    <string-array name="name">
+        <item>桐人</item>
+        <item>亞絲娜</item>
+        <item>詩乃</item>
+        <item>結衣</item>
+        <item>莉法</item>
+        <item>有紀</item>
+        <item>西莉卡</item>
+        <item>莉茲貝特</item>
+        <item>幸</item>
+    </string-array>
 </resources>
