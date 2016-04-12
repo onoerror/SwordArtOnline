@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -37,13 +38,14 @@ public class AccountNumber extends android.support.v4.app.DialogFragment {
                 .setPositiveButton("確定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        String message = "歡迎光臨" + m_et_username.getText();
+                        ((TextView)getActivity().findViewById(R.id.tv_message)).setText(message);
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        ((TextView)getActivity().findViewById(R.id.tv_message)).setText("登入取消");
                     }
                 });
         return builder.create();
