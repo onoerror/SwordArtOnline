@@ -9,11 +9,24 @@ import android.view.View;
 import android.widget.TextView;
 
 public class Main extends AppCompatActivity
-implements DialogInterface.OnClickListener{
+implements DialogInterface.OnClickListener, AccountNumber.CallBack{
 
 
     private TextView m_tv_message;
     private int loginCount;
+
+    @Override
+    public void call(CharSequence username,int which){
+        switch (which){
+            case DialogInterface.BUTTON_POSITIVE:
+                loginCount++;
+                m_tv_message.setText("次數"+loginCount+"歡迎光臨");
+                break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                m_tv_message.setText("登入取消");
+                break;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

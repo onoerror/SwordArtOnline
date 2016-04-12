@@ -10,13 +10,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AccountNumber extends android.support.v4.app.DialogFragment {
+
+    public interface CallBack{
+        void call(CharSequence username,int which);
+    }
 
     private EditText m_et_username;
 
@@ -38,14 +41,23 @@ public class AccountNumber extends android.support.v4.app.DialogFragment {
                 .setPositiveButton("確定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String message = "歡迎光臨" + m_et_username.getText();
-                        ((TextView)getActivity().findViewById(R.id.tv_message)).setText(message);
+
+
+                        CharSequence username = m_et_username.getText();
+                                ((AccountNumber.CallBack) getActivity()).call(username, which);
+//                        int count = ((Main)getActivity()).getLoginCount();
+//                        count++;
+//                        ((Main)getActivity()).setLoginCount(count);
+//                        String message = "on"+count+"歡迎光臨" + m_et_username.getText();
+//                        ((TextView)getActivity().findViewById(R.id.tv_message)).setText(message);
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ((TextView)getActivity().findViewById(R.id.tv_message)).setText("登入取消");
+
+                        ((AccountNumber.CallBack)getActivity()).call(null, which);
+//                        ((TextView)getActivity().findViewById(R.id.tv_message)).setText("登入取消");
                     }
                 });
         return builder.create();
