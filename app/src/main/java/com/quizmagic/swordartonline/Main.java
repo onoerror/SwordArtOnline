@@ -13,6 +13,7 @@ implements DialogInterface.OnClickListener{
 
 
     private TextView m_tv_message;
+    private int loginCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,14 @@ implements DialogInterface.OnClickListener{
         setContentView(R.layout.activity_main);
 
         init();
+    }
+
+    public int getLoginCount(){
+        return loginCount;
+    }
+
+    public void setLoginCount(int loginCount){
+        this.loginCount = loginCount;
     }
 
     private void init(){
